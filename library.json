@@ -1,0 +1,22 @@
+{
+    "name": "Debug",
+    "version": "1.0.0",
+    "description": "The debug.h library simplifies adding debug messages to your Arduino sketches. It provides a debugf function that allows you to print various data types to the serial monitor, aiding in code development and troubleshooting.",
+    "keywords": "arduino, debugging, serial, communication",
+    "repository": {
+        "type": "git",
+        "url": "FILL_ME_IN"
+    },
+    "authors": [
+        {
+            "name": "Mark Ain Ello",
+            "email": "ainmark16@gmail.com",
+            "maintainer": true
+        }
+    ],
+    "license": "MIT",
+    "homepage": "FILL_ME_IN",
+    "dependencies": {},
+    "frameworks": "*",
+    "platforms": "*"
+}
