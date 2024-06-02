@@ -5,25 +5,22 @@
 
 /* --------- DEBUGGING MODES --------- */
 
-#ifndef DEBUG
+// Function prototype for debugf (declared even if DEBUG is not defined)
+void debugf(const char* format, ...);
 
-// Completely disable debug functionality when DEBUG is not defined
-void debug_init(int baudrate) {}  // Empty function to avoid potential linker errors
-#define debugf(...)  // Do nothing (empty macro)
+// Function prototype for debug_init (declared even if DEBUG is not defined)
+void debug_init(int baudrate);
 
-#else  // DEBUG is defined
+#ifdef DEBUG
 
-// Function-like macro with variadic arguments for debugf
-#define debugf(...)  \
-  if (Serial) {      \
-    Serial.print(__VA_ARGS__);  \
-  }
+// Function definition for debugf when DEBUG is defined
+void debugf(const char* format, ...) {
+  Serial.printf(format, __VA_ARGS__);
+}
 
-// Separate initialization for debug (optional)
-void debug_Init(int baudrate) {
-  if (Serial) {
-    Serial.begin(baudrate);
-  }
+// Function definition for debug_init when DEBUG is defined
+void debug_init(int baudrate) {
+  Serial.begin(baudrate);
 }
 
 #endif // DEBUG
